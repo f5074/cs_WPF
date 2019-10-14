@@ -95,13 +95,6 @@
     <Compile Include="Service\Dashboard\DashboardDTO.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Lib\AutomationDB.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>AutomationDB.mdf</DependentUpon>
-    </Content>
-    <None Include="Lib\AutomationDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Content Include="Lib\Castle.DynamicProxy.dll" />
     <Content Include="Lib\Castle.DynamicProxy.xml" />
     <Content Include="Lib\Common.Logging.dll" />
