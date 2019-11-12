@@ -1,0 +1,105 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApplication1
+{
+    public partial class Form1 : Form
+    {
+
+
+
+
+        public Form1()
+        {
+            InitializeComponent();
+            ChangeText();
+
+        }
+
+        // 원하는 값을 가지고 위치를 변경하고 싶을 경우
+        public void ChangeText()
+        {
+            StringBuilder text = new StringBuilder(this.richTextBox1.Text);
+
+            IList<TestVo> test1 = new List<TestVo>();
+            for (int x = 0; x < NewArr1.Length; x++)
+            {
+                test1.Add(new TestVo() { s1 = NewArr1[x].ToUpper().Trim(), s2 = NewArr2[x].ToUpper().Trim(), s3 = "" });
+            }
+
+            IList<TestVo> test2 = new List<TestVo>();
+            for (int x = 0; x < OldArr1.Length; x++)
+            {
+                test2.Add(new TestVo() { s1 = OldArr1[x].ToUpper().Trim(), s2 = OldArr2[x].ToUpper().Trim(), s3 = OldArr3[x] });
+            }
+
+            for (int x = 0; x < test1.Count; x++)
+            {
+                for (int y = 0; y < test2.Count; y++)
+                {
+                    if (test2[y].s1 == test1[x].s1 && test2[y].s2 == test1[x].s2) test1[x].s3 = test2[y].s3;
+                }
+
+                text.AppendFormat("{0}{1},{2},{3}", Environment.NewLine, test1[x].s1, test1[x].s2, test1[x].s3);
+                richTextBox1.Text = text.ToString();
+                richTextBox1.SelectionStart = richTextBox1.Text.Length;
+                richTextBox1.ScrollToCaret();
+            }
+        }
+        public class TestVo
+        {
+            public string s1 { get; set; }
+            public string s2 { get; set; }
+            public string s3 { get; set; }
+            public string s4 { get; set; }
+        }
+
+        public string[] OldArr3 = new string[] {
+"ERR1"
+,"ERR2"
+,"ERR3"
+,"ERR4"
+,"ERR5"
+,"ERR6"
+        };
+        public string[] OldArr2 = new string[] {
+"case2"
+,"case2"
+,"case2"
+,"case1"
+,"case1"
+,"case1"
+        };
+        public string[] OldArr1 = new string[] {
+"A1"
+,"A2"
+,"A3"
+,"B1"
+,"B2"
+,"B3"
+        };
+        public string[] NewArr2 = new string[] {
+"case3"
+,"case2"
+,"case3"
+,"case1"
+,"case1"
+,"case1"
+        };
+        public string[] NewArr1 = new string[] {
+"A3"
+,"A2"
+,"A1"
+,"B3"
+,"B2"
+,"B1"
+        };
+    }
+}
