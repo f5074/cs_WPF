@@ -205,7 +205,12 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\F5074.WPF.Common\F5074.WPF.Common.csproj">
+      <Project>{d67226f4-a6e7-41af-b6e0-cb6b39f92b74}</Project>
+      <Name>F5074.WPF.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
