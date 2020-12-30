@@ -15,13 +15,12 @@ using System.Windows.Shapes;
 
 namespace F5074.LauncherWPF.View.E_UserControl {
     /// <summary>
-    /// LogView.xaml에 대한 상호 작용 논리
+    /// TextRemoveView.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class LogView : UserControl {
-        public LogView()
+    public partial class TextRemoveView : UserControl {
+        public TextRemoveView()
         {
             InitializeComponent();
-            //DataContext = new LogViewModel();
         }
     }
 }

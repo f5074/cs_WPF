@@ -21,7 +21,6 @@ namespace F5074.LauncherWPF {
         public MainWindow()
         {
             InitializeComponent();
-            InitMenu();
             Init();
         }
 
@@ -29,6 +28,10 @@ namespace F5074.LauncherWPF {
         {
             try
             {
+                menuList.Add(new MenuModel() { PRNT_MDL_ID = "E_UserControl", MDL_ID = "T", MDL_NM = "Basic", MDL_DESC = "", PGM_CD = "G", PGM_NM = "", PGM_IMG_NM = "State_Validation_Valid", SRT_ORD_SEQ = 3, SYS_AREA_CD = "E_UserControl", VIS_FLG = "Y", UPD_FLG = "Y" });
+                SetMenu();
+                this.GridEdit_menu.ItemsSource = menuList;
+
                 documentPanel = this.dockManager.DockController.AddDocumentPanel(Container, new Uri("/F5074.LauncherWPF;component/View/D_CardView/CardView01.xaml", UriKind.Relative));
                 documentPanel.Caption = "StartPage";
                 documentPanel.Name = "StartPage";
@@ -50,9 +53,24 @@ namespace F5074.LauncherWPF {
             }
         }
 
+        private void SetMenu()
+        {
+            int idx = 0;
+            for (int enumIdx = 0; enumIdx < Enum.GetNames(typeof(E_UserControl)).Length; enumIdx++)
+            {
+                idx += 1;
+                menuList.Add(new MenuModel() { PRNT_MDL_ID = "T", MDL_ID = idx.ToString(), MDL_NM = ((E_UserControl)enumIdx).ToString(), MDL_DESC = ((E_UserControl)enumIdx).ToString(), PGM_CD = "A", PGM_NM = ((E_UserControl)enumIdx).ToString(), PGM_IMG_NM = "State_Validation_Valid", SRT_ORD_SEQ = idx, SYS_AREA_CD = "E_UserControl", VIS_FLG = "Y", UPD_FLG = "Y" });
+            }
+
+            for (int enumIdx = 0; enumIdx < Enum.GetNames(typeof(D_CardView)).Length; enumIdx++)
+            {
+                idx += 1;
+                menuList.Add(new MenuModel() { PRNT_MDL_ID = "T", MDL_ID = idx.ToString(), MDL_NM = ((D_CardView)enumIdx).ToString(), MDL_DESC = ((D_CardView)enumIdx).ToString(), PGM_CD = "A", PGM_NM = ((D_CardView)enumIdx).ToString(), PGM_IMG_NM = "State_Validation_Valid", SRT_ORD_SEQ = idx, SYS_AREA_CD = "D_CardView", VIS_FLG = "Y", UPD_FLG = "Y" });
+            }
+        }
+
         private void GridEdit_menu_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
             try
             {
                 SystemProperties.ScreenShow();
@@ -76,7 +94,7 @@ namespace F5074.LauncherWPF {
 
                     }
                     string sUri = String.Format("{0}View/{1}/{2}.xaml", SystemProperties.PROGRAM_NAME, menuModel.SYS_AREA_CD, menuModel.PGM_NM);
-                    documentPanel = dockManager.DockController.AddDocumentPanel(Container, new Uri(sUri, UriKind.Relative));  
+                    documentPanel = dockManager.DockController.AddDocumentPanel(Container, new Uri(sUri, UriKind.Relative));
                     documentPanel.Name = menuModel.PGM_NM;
                     documentPanel.ToolTip = menuModel.MDL_DESC;
                     documentPanel.Caption = menuModel.MDL_NM;
@@ -116,27 +134,16 @@ namespace F5074.LauncherWPF {
             documentPanel.Loaded -= panel_Loaded;
             //DXSplashScreen.Close();
         }
-        private void InitMenu()
-        {
-            try
-            {
-                menuList.Add(new MenuModel() { PRNT_MDL_ID = "T", MDL_ID = "T", MDL_NM = "Basic", MDL_DESC = "", PGM_CD = "G", PGM_NM = "", PGM_IMG_NM = "State_Validation_Valid", SRT_ORD_SEQ = 3, SYS_AREA_CD = "E_UserControl", VIS_FLG = "Y", UPD_FLG = "Y" });
-                menuList.Add(new MenuModel() { PRNT_MDL_ID = "T", MDL_ID = "1", MDL_NM = "1_Log", MDL_DESC = "로그연습", PGM_CD = "A", PGM_NM = "LogView", PGM_IMG_NM = "State_Validation_Valid", SRT_ORD_SEQ = 1, SYS_AREA_CD = "E_UserControl", VIS_FLG = "Y", UPD_FLG = "Y" });
-                menuList.Add(new MenuModel() { PRNT_MDL_ID = "T", MDL_ID = "2", MDL_NM = "2_Capture", MDL_DESC = "", PGM_CD = "A", PGM_NM = "CaptureView", PGM_IMG_NM = "State_Validation_Valid", SRT_ORD_SEQ = 2, SYS_AREA_CD = "E_UserControl", VIS_FLG = "Y", UPD_FLG = "Y" });
-                menuList.Add(new MenuModel() { PRNT_MDL_ID = "T", MDL_ID = "3", MDL_NM = "3_Excel", MDL_DESC = "", PGM_CD = "A", PGM_NM = "ExcelView", PGM_IMG_NM = "State_Validation_Valid", SRT_ORD_SEQ = 2, SYS_AREA_CD = "E_UserControl", VIS_FLG = "Y", UPD_FLG = "Y" });
-                menuList.Add(new MenuModel() { PRNT_MDL_ID = "T", MDL_ID = "4", MDL_NM = "4_TextRemove", MDL_DESC = "", PGM_CD = "A", PGM_NM = "TextRemoveView", PGM_IMG_NM = "State_Validation_Valid", SRT_ORD_SEQ = 2, SYS_AREA_CD = "E_UserControl", VIS_FLG = "Y", UPD_FLG = "Y" });
-                this.GridEdit_menu.ItemsSource = menuList;
 
-            }
-            catch (Exception ex)
-            {
-                SystemProperties.ShowError(ex.Message);
-                return;
-            }
-            finally
-            {
-                if (DXSplashScreen.IsActive) SystemProperties.ScreenClose();
-            }
+        private enum E_UserControl {
+            LogView,
+            CaptureView,
+            ExcelView,
+            TextRemoveView,
+        }
+
+        private enum D_CardView {
+            CardView01,
         }
     }
 }

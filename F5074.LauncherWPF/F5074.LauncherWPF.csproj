@@ -99,6 +99,7 @@
       <DependentUpon>ProgressWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\LogViewModel.cs" />
+    <Compile Include="ViewModel\TextRemoveViewModel.cs" />
     <Compile Include="View\A_FlowLayout\FlowLayout01.xaml.cs">
       <DependentUpon>FlowLayout01.xaml</DependentUpon>
     </Compile>
@@ -122,6 +123,9 @@
     </Compile>
     <Compile Include="View\E_UserControl\LogView.xaml.cs">
       <DependentUpon>LogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\E_UserControl\TextRemoveView.xaml.cs">
+      <DependentUpon>TextRemoveView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -168,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\E_UserControl\LogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\E_UserControl\TextRemoveView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
