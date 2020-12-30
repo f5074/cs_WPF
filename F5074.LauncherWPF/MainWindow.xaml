@@ -4,28 +4,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
-        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
-        xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
-        Title="MainWindow" Height="768" Width="1024">
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+        Title="MainWindow" Height="768" Width="1024" WindowState="Maximized">
+    <!-- Window Resources -->
+    <Window.Resources></Window.Resources>
+
     <Grid>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="5"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="5"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5" />
-                <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="5" />
-            </Grid.ColumnDefinitions>
-            <dxlc:FlowLayoutControl x:Name="flowLayout" Grid.Row="1" Grid.Column="1" Orientation="Horizontal" />
-            <dxwui:AppBar Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch"  HideMode="AlwaysVisible">
-                <dxwui:AppBarButton Content="" Label="Button" Glyph="{dx:DXImage Image=Add_32x32.png}"  />
-                <dxwui:AppBarSeparator />
-                <dxwui:AppBarButton Content="" Label="Button" AllowGlyphTheming="True"/>
-            </dxwui:AppBar>
-        </Grid>
+        <!-- DockingLayout:  DevExpress.Xpf.Docking -->
+        <dxdo:DockLayoutManager x:Name="dockManager" FloatingMode="Desktop">
+            <dxdo:LayoutGroup>
+                <dxdo:LayoutPanel Caption="MenuList" dxb:MergingProperties.ElementMergingBehavior="Undefined" ItemWidth="51.74*">
+                    <!-- GridControl:  DevExpress.Xpf.Grid, DevExpress.Xpf.Grid.Core, DevExpress.Xpf.Layout.Core, DevExpress.Xpf.LayoutControl -->
+                    <dxg:GridControl x:Name="GridEdit_menu" ItemsSource="{Binding Path=SelectedMenuViewList}">
+                        <dxg:GridControl.View>
+                            <dxg:TreeListView x:Name="GridEditView_menu" KeyFieldName="MDL_ID" ParentFieldName="PRNT_MDL_ID" IsSynchronizedWithCurrentItem="True" ShowFixedTotalSummary="False" FontSize="12" ShowSearchPanelCloseButton="True" ShowSearchPanelMode="Default" AutoWidth="True" AllowPerPixelScrolling="True" AllowFilterEditor="False" BestFitMode="Smart" BestFitArea="All" ShowHorizontalLines="False" AllowEditing="False" NavigationStyle="Row" AllowHorizontalScrollingVirtualization="False" FadeSelectionOnLostFocus="False" ShowIndicator="False" IsColumnMenuEnabled="False" ShowColumnHeaders="False" AutoExpandAllNodes="True" TreeDerivationMode="Selfreference" ShowNodeImages="True" ImageFieldName="IMAGE" VerticalScrollbarVisibility="Auto"/>
+                        </dxg:GridControl.View>
+                        <dxg:GridControl.Columns>
+                            <dxg:GridColumn FieldName="FullName" UnboundType="String" UnboundExpression="[MDL_NM]" ReadOnly="True"  />
+                            <!--<dxg:GridColumn FieldName="FullName" UnboundType="String" UnboundExpression="[MDL_NM] + ' (' + [PRNT_MDL_ID] + ')'" ReadOnly="True"  />-->
+                        </dxg:GridControl.Columns>
+                    </dxg:GridControl>
+                </dxdo:LayoutPanel>
+                <dxdo:DocumentGroup x:Name="Container" ClosePageButtonShowMode="InAllTabPageHeaders" ShowCaption="True" ItemWidth="349.26*">
+                </dxdo:DocumentGroup>
+            </dxdo:LayoutGroup>
+        </dxdo:DockLayoutManager>
     </Grid>
 </dx:DXWindow>

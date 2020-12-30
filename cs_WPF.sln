@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F5074.LauncherWPF", "F5074.LauncherWPF\F5074.LauncherWPF.csproj", "{B78576B8-F80B-4F69-8069-1A5341B29AF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F5074.WPF.Common", "F5074.WPF.Common\F5074.WPF.Common.csproj", "{D67226F4-A6E7-41AF-B6E0-CB6B39F92B74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D7CFAC0B-88D2-4B61-BD2A-32171C4FC0FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Launcher", "Launcher", "{AF68019D-12C0-448F-B4CE-4874459BC6F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +21,17 @@ Global
 		{B78576B8-F80B-4F69-8069-1A5341B29AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B78576B8-F80B-4F69-8069-1A5341B29AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B78576B8-F80B-4F69-8069-1A5341B29AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D67226F4-A6E7-41AF-B6E0-CB6B39F92B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D67226F4-A6E7-41AF-B6E0-CB6B39F92B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D67226F4-A6E7-41AF-B6E0-CB6B39F92B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D67226F4-A6E7-41AF-B6E0-CB6B39F92B74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B78576B8-F80B-4F69-8069-1A5341B29AF9} = {AF68019D-12C0-448F-B4CE-4874459BC6F2}
+		{D67226F4-A6E7-41AF-B6E0-CB6B39F92B74} = {D7CFAC0B-88D2-4B61-BD2A-32171C4FC0FB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0ADB8391-B50C-43AE-9A4F-4C18C241B1F7}
