@@ -87,9 +87,6 @@ namespace F5074.LauncherWPF {
                         dockManager.ActiveMDIItem = item;
                         item.AllowSelection = true;
                         item.IsActive = true;
-
-                        if (DXSplashScreen.IsActive) DXSplashScreen.Close();
-
                         return;
 
                     }
