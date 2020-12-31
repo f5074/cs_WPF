@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
@@ -69,6 +72,16 @@
       <HintPath>..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.Xpf.Themes.DXStyle.v17.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Xpf.Themes.Office2016White.v17.1" />
+    <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>bin\Debug\Microsoft.Office.Interop.PowerPoint.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>bin\Debug\Office.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -99,6 +112,7 @@
       <DependentUpon>ProgressWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\LogViewModel.cs" />
+    <Compile Include="ViewModel\PPTConverterViewModel.cs" />
     <Compile Include="ViewModel\TextRemoveViewModel.cs" />
     <Compile Include="View\A_FlowLayout\FlowLayout01.xaml.cs">
       <DependentUpon>FlowLayout01.xaml</DependentUpon>
@@ -123,6 +137,9 @@
     </Compile>
     <Compile Include="View\E_UserControl\LogView.xaml.cs">
       <DependentUpon>LogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\E_UserControl\PPTConverterView.xaml.cs">
+      <DependentUpon>PPTConverterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\E_UserControl\TextRemoveView.xaml.cs">
       <DependentUpon>TextRemoveView.xaml</DependentUpon>
@@ -172,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\E_UserControl\LogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\E_UserControl\PPTConverterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,10 +4,14 @@ using F5074.LauncherWPF.Progress;
 using F5074.WPF.Common.Type;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace F5074.LauncherWPF.Common {
     public class SystemProperties {
@@ -78,6 +82,72 @@ namespace F5074.LauncherWPF.Common {
         public static string MesssageTitle(ProgramMessageType messageType)
         {
             return String.Format("[{0}] {1}", SystemProperties.PROGRAM_TITLE, messageType.ToString());
+        }
+
+        public static void AdminRelauncher()
+        {
+            if (!IsRunAsAdmin())
+            {
+                ProcessStartInfo proc = new ProcessStartInfo();
+                proc.UseShellExecute = true;
+                proc.WorkingDirectory = Environment.CurrentDirectory;
+                proc.FileName = Assembly.GetEntryAssembly().CodeBase;
+
+                proc.Verb = "runas";
+
+                try
+                {
+                    Process.Start(proc);
+                    System.Windows.Application.Current.Shutdown();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("This program must be run as an administrator! \n\n" + ex.ToString());
+                }
+            }
+        }
+        private static bool IsRunAsAdmin()
+        {
+            WindowsIdentity id = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(id);
+
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
+
+        /// <summary>
+        /// FileDialogShow
+        /// </summary>
+        /// <returns></returns>
+        public static string FileDialogShow(string filter)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Open File Diallog";
+            ofd.FileName = "";
+            ofd.Filter = filter;
+
+            DialogResult dr = ofd.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                string fileName = ofd.SafeFileName;
+                string fileFullName = ofd.FileName;
+                string filePath = fileFullName.Replace(fileName, "");
+
+                return fileFullName;
+            }
+            else if (dr == DialogResult.Cancel)
+            {
+                return "";
+            }
+
+            return "";
+        }
+
+        public static string FolderBrowserDialogShow()
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.ShowDialog();
+            return folderBrowserDialog.SelectedPath;
         }
     }
 }

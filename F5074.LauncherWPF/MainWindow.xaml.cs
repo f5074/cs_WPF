@@ -140,6 +140,7 @@ namespace F5074.LauncherWPF {
             CaptureView,
             ExcelView,
             TextRemoveView,
+            PPTConverterView,
         }
 
         private enum D_CardView {

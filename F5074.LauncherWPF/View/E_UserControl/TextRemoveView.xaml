@@ -1,5 +1,5 @@
 ﻿<UserControl x:Class="F5074.LauncherWPF.View.E_UserControl.TextRemoveView"
-              xmlns:ViewModel="clr-namespace:F5074.LauncherWPF.ViewModel"
+             xmlns:ViewModel="clr-namespace:F5074.LauncherWPF.ViewModel"
              DataContext="{mvvm:ViewModelSource Type=ViewModel:TextRemoveViewModel}"
              xmlns:mvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -35,28 +35,7 @@
 
         <dxwui:AppBar Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4"  IsOpen="True" IsCompact="False"  IsSticky="True" >
 
-            <dxwui:AppBarButton Label="1" HorizontalAlignment="Center" AllowGlyphTheming="True" Command="{Binding Refresh1Command}" IsEnabled="True">
-                <Image Stretch="Fill" Width="25" Height="25" Source="{dx:DXImageGrayscale Image=Refresh_32x32.png}"/>
-            </dxwui:AppBarButton>
-            <dxwui:AppBarButton Label="2" HorizontalAlignment="Center" AllowGlyphTheming="True" Command="{Binding Refresh2Command}" IsEnabled="True">
-                <Image Stretch="Fill" Width="25" Height="25" Source="{dx:DXImageGrayscale Image=Refresh_32x32.png}"/>
-            </dxwui:AppBarButton>
-            <dxwui:AppBarButton Label="3" HorizontalAlignment="Center" AllowGlyphTheming="True" Command="{Binding Refresh3Command}" IsEnabled="True">
-                <Image Stretch="Fill" Width="25" Height="25" Source="{dx:DXImageGrayscale Image=Refresh_32x32.png}"/>
-            </dxwui:AppBarButton>
-            <dxwui:AppBarButton Label="4" HorizontalAlignment="Center" AllowGlyphTheming="True" Command="{Binding Refresh4Command}" IsEnabled="True">
-                <Image Stretch="Fill" Width="25" Height="25" Source="{dx:DXImageGrayscale Image=Refresh_32x32.png}"/>
-            </dxwui:AppBarButton>
-            <dxwui:AppBarButton Label="5" HorizontalAlignment="Center" AllowGlyphTheming="True" Command="{Binding Refresh5Command}" IsEnabled="True">
-                <Image Stretch="Fill" Width="25" Height="25" Source="{dx:DXImageGrayscale Image=Refresh_32x32.png}"/>
-            </dxwui:AppBarButton>
-            <dxwui:AppBarButton Label="6" HorizontalAlignment="Center" AllowGlyphTheming="True" Command="{Binding Refresh6Command}" IsEnabled="True">
-                <Image Stretch="Fill" Width="25" Height="25" Source="{dx:DXImageGrayscale Image=Refresh_32x32.png}"/>
-            </dxwui:AppBarButton>
-            <dxwui:AppBarButton Label="7" HorizontalAlignment="Center" AllowGlyphTheming="True" Command="{Binding Refresh7Command}" IsEnabled="True">
-                <Image Stretch="Fill" Width="25" Height="25" Source="{dx:DXImageGrayscale Image=Refresh_32x32.png}"/>
-            </dxwui:AppBarButton>
-            <dxwui:AppBarButton Label="8" HorizontalAlignment="Center" AllowGlyphTheming="True" Command="{Binding Refresh8Command}" IsEnabled="True">
+            <dxwui:AppBarButton Label="1" HorizontalAlignment="Center" AllowGlyphTheming="True" Command="{Binding Refresh1}" IsEnabled="True">
                 <Image Stretch="Fill" Width="25" Height="25" Source="{dx:DXImageGrayscale Image=Refresh_32x32.png}"/>
             </dxwui:AppBarButton>
 
